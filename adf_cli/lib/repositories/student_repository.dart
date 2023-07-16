@@ -34,14 +34,36 @@ class StudentRepository {
   }
 
   Future<void> insert(Student student) async {
-    final result = await http.get(Uri.parse('http://localhost:8080/students?'));
+    final result = await http.post(
+      Uri.parse('http://localhost:8080/students'), 
+      body: student.toJson(),
+      headers: {
+        'content-type': 'application/json',
+      }
+    );
+
+    if (result.statusCode != 200) {
+      throw Exception();
+    }
   }
 
   Future<void> update(Student student) async {
-    final result = await http.get(Uri.parse('http://localhost:8080/students'));
+    final result = await http.put(Uri.parse('http://localhost:8080/students/${student.id}'),
+        body: student.toJson(),
+        headers: {
+          'content-type': 'application/json',
+        });
+
+    if (result.statusCode != 200) {
+      throw Exception();
+    }
   }
 
   Future<void> deleteById(int id) async {
-    final result = await http.get(Uri.parse('http://localhost:8080/students'));
+    final result = await http.delete(Uri.parse('http://localhost:8080/students/$id'));
+      
+    if (result.statusCode != 200) {
+      throw Exception();
+    }
   }
 }
