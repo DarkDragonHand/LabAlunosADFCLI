@@ -1,4 +1,4 @@
-import 'package:args/args.dart';
+//import 'package:args/args.dart';
 import 'package:args/command_runner.dart';
 
 void main(List<String> arguments) {
@@ -16,7 +16,7 @@ void main(List<String> arguments) {
   print(argResult['template']);
   */
 
-  CommandRunner('ADF Cli', 'ADF Cli')
+  CommandRunner('ADF Cli', 'CLI da Academia do Flutter')
     ..addCommand(ExemploCommand())
     ..run(arguments);
 }
