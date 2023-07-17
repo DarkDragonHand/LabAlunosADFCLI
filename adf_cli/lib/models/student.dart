@@ -46,7 +46,7 @@ class Student {
         courses: map['courses']
         .map<Course>((courseMap) => Course.fromMap(courseMap))
         .toList() ?? <Course>[],
-        address: Address.fromMap(map['adress'] ?? <String, dynamic>{}),
+        address: Address.fromMap(map['address'] ?? <String, dynamic>{}),
     );
   }
   factory Student.fromJson(String json) => Student.fromMap(jsonDecode(json));

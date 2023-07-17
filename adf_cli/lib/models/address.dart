@@ -21,8 +21,8 @@ class Address {
       'street': street,
       'number': number,
       'zipCode': zipCode,
-      'city': city,
-      'phone': phone,
+      'city': city.toMap(),
+      'phone': phone.toMap(),
     };
   }
 
