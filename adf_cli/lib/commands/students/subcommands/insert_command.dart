@@ -15,7 +15,7 @@ class InsertCommand extends Command {
   InsertCommand(this.studentRepository) {
     argParser.addOption(
       'file',
-      help: 'Path of the csv file',
+      help: 'Path of the file',
       abbr: 'f',
     );
   }
@@ -29,14 +29,14 @@ class InsertCommand extends Command {
   @override
   void run() async {
     print('Aguarde...');
+
     final filePath = argResults?['file'];
     final students = File(filePath).readAsLinesSync();
     print('=======================================');
+
     for (var student in students) {
       final studentData = student.split(';');
-      final coursesCSV =
-          studentData[2].split(',').map((course) => course.trim()).toList();
-
+      final coursesCSV = studentData[2].split(',').map((course) => course.trim()).toList();
       final coursesFuture = coursesCSV.map((c) async {
         final course = await productRepository.findByName(c);
         course.isStudent = true;
