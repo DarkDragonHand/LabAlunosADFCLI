@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:args/command_runner.dart';
 import '../../../models/address.dart';
 import '../../../models/city.dart';
