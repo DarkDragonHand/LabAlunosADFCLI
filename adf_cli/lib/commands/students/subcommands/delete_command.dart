@@ -1,9 +1,9 @@
 import 'dart:io';
 import 'package:args/command_runner.dart';
-import '../../../repositories/student_repository.dart';
+import '../../../repositoriesDio/student_dio_repository.dart';
 
 class DeleteCommand extends Command {
-  final StudentRepository studentRepository;
+  final StudentDioRepository studentRepository;
 
   DeleteCommand(this.studentRepository) {
     argParser.addOption('delete', help: 'Delete Student', abbr: 'd');
@@ -28,8 +28,8 @@ class DeleteCommand extends Command {
     print('Rodando o deleteById');
     print('Aguarde buscando aluno...');
     final student = await studentRepository.findById(id);
-    print('Você confirma para deletar o aluno "${student.name}" do ID:${student.id}? (S) ou (N)');
 
+    print('Você confirma para deletar o aluno "${student.name}" do ID:${student.id}? (S) ou (N)');
     final confirmDelete = stdin.readLineSync();
     if (confirmDelete?.toLowerCase() == 's') {
       await studentRepository
@@ -42,5 +42,6 @@ class DeleteCommand extends Command {
       print('Comando inválido.');
       return;
     }
+    print('=======================================');
   }
 }

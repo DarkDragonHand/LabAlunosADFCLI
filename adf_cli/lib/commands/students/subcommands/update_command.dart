@@ -4,12 +4,12 @@ import '../../../models/address.dart';
 import '../../../models/city.dart';
 import '../../../models/phone.dart';
 import '../../../models/student.dart';
-import '../../../repositories/product_repository.dart';
-import '../../../repositories/student_repository.dart';
+import '../../../repositoriesDio/product_dio_repository.dart';
+import '../../../repositoriesDio/student_dio_repository.dart';
 
 class UpdateCommand extends Command {
-  final StudentRepository studentRepository;
-  final productRepository = ProductRepository();
+  final StudentDioRepository studentRepository;
+  final productRepository = ProductDioRepository();
 
   UpdateCommand(this.studentRepository) {
     argParser.addOption('file', help: 'Path of the file', abbr: 'f');

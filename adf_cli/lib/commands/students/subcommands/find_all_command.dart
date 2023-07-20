@@ -1,9 +1,9 @@
 import 'dart:io';
 import 'package:args/command_runner.dart';
-import '../../../repositories/student_repository.dart';
+import '../../../repositoriesDio/student_dio_repository.dart';
 
 class FindAllCommand extends Command {
-  final StudentRepository studentRepository;
+  final StudentDioRepository studentRepository;
 
   FindAllCommand(this.studentRepository);
 
@@ -26,8 +26,8 @@ class FindAllCommand extends Command {
     print('=======================================');
     for (var student in students) {
       if (showCourses?.toLowerCase() == 's') {
-        print('${student.id} - ${student.name} - ${student.courses.where((course) => course.isStudent)
-        .map((nameCourse) => nameCourse.name).toList()}');
+        print(
+            '${student.id} - ${student.name} - ${student.courses.where((course) => course.isStudent).map((nameCourse) => nameCourse.name).toList()}');
       } else {
         print('${student.id} - ${student.name}');
       }

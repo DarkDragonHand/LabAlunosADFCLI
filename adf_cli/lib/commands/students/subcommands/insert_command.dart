@@ -5,12 +5,13 @@ import '../../../models/address.dart';
 import '../../../models/city.dart';
 import '../../../models/phone.dart';
 import '../../../models/student.dart';
-import '../../../repositories/product_repository.dart';
-import '../../../repositories/student_repository.dart';
+import '../../../repositoriesDio/product_dio_repository.dart';
+import '../../../repositoriesDio/student_dio_repository.dart';
+
 
 class InsertCommand extends Command {
-  final StudentRepository studentRepository;
-  final productRepository = ProductRepository();
+  final StudentDioRepository studentRepository;
+  final productRepository = ProductDioRepository();
 
   InsertCommand(this.studentRepository) {
     argParser.addOption(
