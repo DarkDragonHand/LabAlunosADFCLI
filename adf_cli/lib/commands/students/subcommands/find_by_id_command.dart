@@ -22,7 +22,7 @@ class FindByIdCommand extends Command {
       return;
     }
     final id = int.parse(argResults?['id']);
-    print('Rodando o findAll');
+    print('Rodando o findById');
     print('Aguarde buscando aluno...');
     final student = await studentRepository.findById(id);
     print('=======================================');
@@ -32,7 +32,8 @@ class FindByIdCommand extends Command {
     print('Cursos:');
     student.nameCourses.forEach(print);
     print('Cursos Adquiridos:');
-    print('${student.courses.where((course) => course.isStudent).map((nameCourse) => nameCourse.name)}');
+    print(
+        '${student.courses.where((course) => course.isStudent).map((nameCourse) => nameCourse.name)}');
     print('Endereço:');
     print('${student.address.street} - ${student.address.zipCode}');
     print('Cidade: ${student.address.city.name}');

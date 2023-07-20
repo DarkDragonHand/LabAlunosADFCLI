@@ -13,15 +13,14 @@
                 "students",
                 "findById",
                 "-i",
-                "1",
-                "${input: id_student}"
+                "${input:id_student}"
             ]
         }
     ],
     "inputs": [
         {
             "id": "id_student",
-            "description": "Informe o ID do algumas",
+            "description": "Informe o ID do aluno",
             "default": "",
             "type": "promptString"
         }

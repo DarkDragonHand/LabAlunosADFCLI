@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import '../models/student.dart';
-import 'package:http/http.dart' as http;
 
 class StudentDioRepository {
   Future<List<Student>> findAll() async {
@@ -17,8 +16,8 @@ class StudentDioRepository {
 
   Future<Student> findById(int id) async {
     try {
-      final studentResult =
-          await Dio().get('http://localhost:8080/students/', queryParameters: {
+      final studentResult = await Dio()
+          .get('http://localhost:8080/students', queryParameters: {
             'id': id
           });
       if (studentResult.data == null) {
@@ -33,7 +32,7 @@ class StudentDioRepository {
 
   Future<void> insert(Student student) async {
     try {
-      final result = await Dio().get('http://localhost:8080/students');
+      await Dio().post('http://localhost:8080/students', data: student.toMap());
     } on DioException catch (de) {
       print(de);
       throw Exception();
@@ -42,12 +41,8 @@ class StudentDioRepository {
 
   Future<void> update(Student student) async {
     try {
-      final result = await http.put(
-          Uri.parse('http://localhost:8080/students/${student.id}'),
-          body: student.toJson(),
-          headers: {
-            'content-type': 'application/json',
-          });
+      await Dio().put('http://localhost:8080/students/${student.id}',
+          data: student.toMap());
     } on DioException catch (de) {
       print(de);
       throw Exception();
@@ -56,8 +51,7 @@ class StudentDioRepository {
 
   Future<void> deleteById(int id) async {
     try {
-      final result = await http.delete(Uri.parse('http://localhost:8080/students/$id'));
-
+      await Dio().delete('http://localhost:8080/students/$id');
     } on DioException catch (de) {
       print(de);
       throw Exception();

@@ -19,13 +19,13 @@ class DeleteCommand extends Command {
   @override
   Future<void> run() async {
     print('Aguarde...');
+    print('Rodando o delete');
     final id = int.parse(argResults?['id']);
     if (argResults?['id'] == null) {
       print('Por favor, envie o id do aluno com o comando --id ou -i');
       return;
     }
     print('=======================================');
-    print('Rodando o deleteById');
     print('Aguarde buscando aluno...');
     final student = await studentRepository.findById(id);
 

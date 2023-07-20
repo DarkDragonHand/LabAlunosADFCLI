@@ -30,7 +30,7 @@ class InsertCommand extends Command {
   @override
   void run() async {
     print('Aguarde...');
-
+    print('Rodando o insert');
     final filePath = argResults?['file'];
     final students = File(filePath).readAsLinesSync();
     print('=======================================');

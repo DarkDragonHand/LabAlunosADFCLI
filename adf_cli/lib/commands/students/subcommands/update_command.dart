@@ -25,6 +25,7 @@ class UpdateCommand extends Command {
   @override
   Future<void> run() async {
     print('Aguarde...');
+    print('Rodando o update');
     final filePath = argResults?['file'];
     final id = argResults?['id'];
     if (id == null) {
