@@ -17,13 +17,11 @@ class StudentDioRepository {
   Future<Student> findById(int id) async {
     try {
       final studentResult = await Dio()
-          .get('http://localhost:8080/students', queryParameters: {
-            'id': id
-          });
+          .get('http://localhost:8080/students', queryParameters: {'id': id});
       if (studentResult.data == null) {
         throw Exception();
       }
-      return Student.fromMap(studentResult.data);
+      return Student.fromMap(studentResult.data.first);
     } on DioException catch (de) {
       print(de);
       throw Exception();
@@ -51,7 +49,7 @@ class StudentDioRepository {
 
   Future<void> deleteById(int id) async {
     try {
-      await Dio().delete('http://localhost:8080/students/$id');
+      await Dio().delete('http://localhost:8080/students');
     } on DioException catch (de) {
       print(de);
       throw Exception();

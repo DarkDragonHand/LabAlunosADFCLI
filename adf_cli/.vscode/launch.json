@@ -15,7 +15,47 @@
                 "-i",
                 "${input:id_student}"
             ]
-        }
+        },
+        {
+            "name": "Student insert",
+            "request": "launch",
+            "type": "dart",
+            "program": "${workspaceFolder}/bin/adf_cli_bin.dart",
+            "args": [
+                "students",
+                "insert",
+                "-f",
+                "${input:file_path}"
+            ]
+        },
+        {
+            "name": "Student update",
+            "request": "launch",
+            "type": "dart",
+            "program": "${workspaceFolder}/bin/adf_cli_bin.dart",
+            "args": [
+                "students",
+                "update",
+                "-f",
+                "${input:file_path}",
+                "-i",
+                "${input:id_student}"
+            ]
+        },
+        {
+            "name": "Student delete",
+            "request": "launch",
+            "type": "dart",
+            "program": "${workspaceFolder}/bin/adf_cli_bin.dart",
+            "args": [
+                "students",
+                "delete",
+                "-i",
+                "${input:id_student}",
+                "confirm_delete",
+            ]
+        },
+
     ],
     "inputs": [
         {
@@ -23,6 +63,19 @@
             "description": "Informe o ID do aluno",
             "default": "",
             "type": "promptString"
-        }
-    ]
+        },
+        {
+            "id": "file_path",
+            "description": "Informe o caminho do arquivo",
+            "default": "",
+            "type": "promptString"
+        },
+        {
+            "id": "confirm_delete",
+            "description": "Você confirma para deletar o aluno? (S) ou (N)",
+            "default": "",
+            "type": "promptString"
+        },
+    ],
+    
 }
