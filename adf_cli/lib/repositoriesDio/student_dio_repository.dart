@@ -49,7 +49,7 @@ class StudentDioRepository {
 
   Future<void> deleteById(int id) async {
     try {
-      await Dio().delete('http://localhost:8080/students');
+      await Dio().delete('http://localhost:8080/students/$id');
     } on DioException catch (de) {
       print(de);
       throw Exception();

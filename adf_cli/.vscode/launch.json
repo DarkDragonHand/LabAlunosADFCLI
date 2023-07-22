@@ -4,6 +4,7 @@
     // Para obter mais informações, acesse: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+
         {
             "name": "Student Find By ID",
             "request": "launch",
@@ -53,9 +54,9 @@
                 "-i",
                 "${input:id_student}",
                 "confirm_delete",
-            ]
+            ],
+            "console": "terminal",
         },
-
     ],
     "inputs": [
         {
@@ -74,7 +75,7 @@
             "id": "confirm_delete",
             "description": "Você confirma para deletar o aluno? (S) ou (N)",
             "default": "",
-            "type": "promptString"
+            "type": "promptString",
         },
     ],
     
