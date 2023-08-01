@@ -23,14 +23,15 @@ class Student {
     final map = <String, dynamic>{
       'id': id,
       'name': name,
+      'age': age ?? 0,
       'nameCourses': nameCourses,
       'courses': courses.map((courseMap) => courseMap.toMap()).toList(),
       'address': address.toMap(),
     };
 
-    if (age != null) {
+    /*if (age != null) {
       map['age'] = age;
-    }
+    }*/
 
     return map;
   }
